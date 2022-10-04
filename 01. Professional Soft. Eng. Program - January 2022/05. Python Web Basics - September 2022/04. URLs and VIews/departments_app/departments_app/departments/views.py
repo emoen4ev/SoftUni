@@ -25,6 +25,7 @@ from django.shortcuts import render, redirect
 
 def show_departments(request: HttpRequest, *args, **kwargs):
     context = {
+        "page_title": "Departments",
         "method": request.method,
         "order_by": request.GET.get("order_by", "name"),
     }
