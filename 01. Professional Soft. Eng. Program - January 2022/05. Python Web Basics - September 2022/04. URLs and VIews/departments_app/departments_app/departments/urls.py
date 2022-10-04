@@ -16,7 +16,6 @@ urlpatterns = (
     path("int/<int:department_id>/", sample_view),
 )
 
-
 # paths = (
 #     "",
 #     "<department_id>/",
