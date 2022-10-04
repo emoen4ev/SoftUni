@@ -8,5 +8,12 @@ from django.shortcuts import render
 
 
 def show_departments(request, *args, **kwargs):
-    body = f"args= {args}, kwargs= {kwargs}"
+    # body = f"args= {args}, kwargs= {kwargs}"
+    body = f"path: {request.path}, args= {args}, kwargs= {kwargs}"
+    return HttpResponse(body)
+    # return HttpResponse()
+
+
+def show_department_details(request, department_id):
+    body = f"path: {request.path}, id: {department_id}"
     return HttpResponse(body)

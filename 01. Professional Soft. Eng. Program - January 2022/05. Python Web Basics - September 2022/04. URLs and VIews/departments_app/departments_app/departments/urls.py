@@ -4,17 +4,19 @@
 from django.urls import path
 
 # from departments_app.departments.views import sample_view
-from departments_app.departments.views import show_departments
+from departments_app.departments.views import show_departments, show_department_details
 
 urlpatterns = (
     # /departments/
     path("", show_departments),
 
     # /departments/{department_id}/
-    path("<department_id>/", show_departments),
+    # path("<department_id>/", show_departments),
+    path("<department_id>/", show_department_details),
 
     # /departments/int/{department_id}/
-    path("int/<int:department_id>/", show_departments),
+    # path("int/<int:department_id>/", show_departments),
+    path("int/<int:department_id>/", show_department_details),
 )
 
 # urlpatterns = (
