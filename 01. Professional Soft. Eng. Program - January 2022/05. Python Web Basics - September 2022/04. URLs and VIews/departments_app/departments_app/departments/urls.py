@@ -3,18 +3,30 @@
 
 from django.urls import path
 
-from departments_app.departments.views import sample_view
+# from departments_app.departments.views import sample_view
+from departments_app.departments.views import show_departments
 
 urlpatterns = (
     # /departments/
-    path("", sample_view),
+    path("", show_departments),
 
     # /departments/{department_id}/
-    path("<department_id>/", sample_view),
+    path("<department_id>/", show_departments),
 
     # /departments/int/{department_id}/
-    path("int/<int:department_id>/", sample_view),
+    path("int/<int:department_id>/", show_departments),
 )
+
+# urlpatterns = (
+#     # /departments/
+#     path("", sample_view),
+#
+#     # /departments/{department_id}/
+#     path("<department_id>/", sample_view),
+#
+#     # /departments/int/{department_id}/
+#     path("int/<int:department_id>/", sample_view),
+# )
 
 # paths = (
 #     "",
