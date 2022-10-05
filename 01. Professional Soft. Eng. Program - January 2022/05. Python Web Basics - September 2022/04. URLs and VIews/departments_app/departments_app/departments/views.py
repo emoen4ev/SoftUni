@@ -1,6 +1,6 @@
 from random import choice
 
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, HttpResponseNotFound, HttpResponseBadRequest, Http404
 from django.shortcuts import render, redirect
 
 
@@ -47,4 +47,19 @@ def redirect_to_first_department(request):
     # to = f"/departments/?order_by={order_by}"  # This is not an abstraction ...
     # return redirect(to)
     # return redirect("show departments")  # it's an abstraction, it's the right way ...
-    return redirect("show department details", department_id= 13)
+    return redirect("show department details", department_id=13)
+
+
+def show_not_found(request):
+    # return HttpResponseNotFound("This not found ... !")  # The default values of status_code are used. Variant: 1
+
+    status_code = 400
+
+    # if status_code == 404:
+    #     return HttpResponseNotFound("This not found ... !")
+    # elif status_code == 400:
+    #     return HttpResponseBadRequest("This is bad ... !")
+
+    # return HttpResponse("Error", status=status_code)  # By overwriting the default values of status_code. Variant: 2
+
+    raise Http404("Not found!")  # Variant: 3
