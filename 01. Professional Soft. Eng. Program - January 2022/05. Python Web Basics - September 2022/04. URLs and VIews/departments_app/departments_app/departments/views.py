@@ -41,6 +41,10 @@ def show_department_details(request: HttpRequest, department_id):
 
 
 def redirect_to_first_department(request):
-    possible_order_by = ["name", "age", "id"]
-    order_by = choice(possible_order_by)
-    return redirect(f"departments/?order_by={order_by}")
+    # possible_order_by = ["name", "age", "id"]
+    # order_by = choice(possible_order_by)
+    # to = "https://softuni.bg"
+    # to = f"/departments/?order_by={order_by}"  # This is not an abstraction ...
+    # return redirect(to)
+    # return redirect("show departments")  # it's an abstraction, it's the right way ...
+    return redirect("show department details", department_id= 13)

@@ -1,22 +1,25 @@
 # "departments"'s app urls.py
-
-
+from django.shortcuts import redirect
 from django.urls import path
 
 # from departments_app.departments.views import sample_view
-from departments_app.departments.views import show_departments, show_department_details
+from departments_app.departments.views import show_departments, show_department_details, redirect_to_first_department
 
 urlpatterns = (
     # /departments/
-    path("", show_departments),
+    path("", show_departments, name= "show departments"),
+
+    path("redirect/", redirect_to_first_department, name= "redirect demo"),
 
     # /departments/{department_id}/
     # path("<department_id>/", show_departments),
-    path("<department_id>/", show_department_details),
+    path("<department_id>/", show_department_details, name= "show department details with string"),
 
     # /departments/int/{department_id}/
     # path("int/<int:department_id>/", show_departments),
-    path("int/<int:department_id>/", show_department_details),
+    path("int/<int:department_id>/", show_department_details, name= "show department details"),
+    path("by-id/<int:department_id>/", show_department_details, name="show department details"),
+
 )
 
 # urlpatterns = (
