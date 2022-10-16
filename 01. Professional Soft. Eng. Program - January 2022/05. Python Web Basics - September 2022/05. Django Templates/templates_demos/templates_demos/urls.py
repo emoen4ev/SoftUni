@@ -7,6 +7,7 @@ urlpatterns = [
     path("", include("templates_demos.web.urls"))
 ]
 
+
 '''
 1. Create new django app(named 'web') to root templates_demos folder
 2. Move new django app('web') to templates_demos\templates_demos folder
