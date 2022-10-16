@@ -19,3 +19,12 @@ from django.urls import path
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+
+'''
+1. Create new django app(web) to root templates_demos folder
+2. Move new django app(web) to templates_demos\templates_demos folder
+3. Add to installed_apps
+4. Create urls.py in the app
+5. Include app's urls.py in project's urls.py
+
+'''
