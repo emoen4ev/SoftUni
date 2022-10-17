@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+
+<nav>
+{#    <a href="{% url 'index' %}">{% url 'index' %}</a>#}
+    <a href="{% url 'index' %}">Go to home</a>
+
+{#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
+    <a href="{% url 'redirect to home' %}">Redirect to home</a>
+</nav>
 <h1>
     Original: {{ title }}: {{ value }}
 </h1>
