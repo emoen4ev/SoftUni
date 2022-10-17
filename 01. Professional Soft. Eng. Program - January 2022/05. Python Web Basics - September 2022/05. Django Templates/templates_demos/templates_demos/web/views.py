@@ -1,4 +1,6 @@
 import random
+from datetime import datetime
+
 from django.shortcuts import render
 
 
@@ -20,6 +22,8 @@ def index(request):
         },
         'student': Student('Doncho', 19),
         'student_info': Student('Doncho', 19).get_info(),  # It is right variant.
+        'now': datetime.now(),
+
     }
 
     return render(request, 'index.html', context)

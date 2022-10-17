@@ -21,6 +21,18 @@
         Lower then capped first: {{ title|lower|capfirst }}: {{ value }}
     </h1>
 
+    <h1>
+        Truncated 10: {{ title|truncatechars:10 }}: {{ value }}
+    </h1>
+
+    <h2>
+        {{ now }}
+    </h2>
+
+    <h2>
+        {{ now|date:"j/F/Y  G:i:s" }}
+    </h2>
+
     {{ info.address }} <!-- In DTL (Django Template Language) -->
     <!-- info['address'] in python -->
 
