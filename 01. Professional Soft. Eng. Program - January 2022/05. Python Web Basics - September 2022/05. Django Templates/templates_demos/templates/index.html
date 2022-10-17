@@ -1,3 +1,5 @@
+{% load filters %} {# 'filters' is the name of the file #}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,14 @@
 {#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
     <a href="{% url 'redirect to home' %}">Redirect to home</a>
 </nav>
+
+<div>
+    Original: {{ values }}
+</div>
+
+<div>
+    Odd: {{ values|odd }} {# 'odd' is te name of the filter #}
+</div>
 
 {{ csrf_token }} <!-- As variable -->
 {% csrf_token %} <!-- As tag -->

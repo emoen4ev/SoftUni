@@ -29,8 +29,9 @@ def index(request):
             'Gosho',
             'Maria',
             'Stamat',
-        ]
+        ],
         # 'students': []
+        'values': list(range(20)),
     }
 
     return render(request, 'index.html', context)
