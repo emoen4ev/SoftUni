@@ -26,9 +26,9 @@
     <h2>
         {{ now|date:"j/F/Y  G:i:s" }}
     </h2>
-
-    {{ info.address }} <!-- In DTL (Django Template Language) --> <!-- info['address'] in python -->
-
+    <div>
+        {{ info.address }} <!-- In DTL (Django Template Language) --> <!-- info['address'] in python -->
+    </div>
     {{ student.get_info }}
 
     {{ student_info }}  <!-- It is right variant. -->
@@ -40,6 +40,14 @@
             No students ...
         {% endif %}
     </div>
+
+<ul>
+    {% for student in students %}
+        <li>{{ student }}</li>
+    {% empty %}
+        <li>No students!</li>
+    {% endfor %}
+</ul>
 
 </body>
 <!-- This is pure/native HTML comment -->
