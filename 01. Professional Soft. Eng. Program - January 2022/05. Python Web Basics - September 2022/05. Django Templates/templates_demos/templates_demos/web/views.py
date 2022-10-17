@@ -23,13 +23,14 @@ def index(request):
         'student': Student('Doncho', 19),
         'student_info': Student('Doncho', 19).get_info(),  # It is right variant.
         'now': datetime.now(),
-        # 'students': [
-        #     'Pesho',
-        #     'Gosho',
-        #     'Maria',
-        #     'Stamat',
-        # ]
-        'students': []
+        'students': [
+            'Pesho',
+            'Pesho',
+            'Gosho',
+            'Maria',
+            'Stamat',
+        ]
+        # 'students': []
 
     }
 
