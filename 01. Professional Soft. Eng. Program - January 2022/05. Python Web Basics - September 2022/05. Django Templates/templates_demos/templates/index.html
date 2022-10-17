@@ -8,37 +8,38 @@
     <h1>
         Original: {{ title }}: {{ value }}
     </h1>
-
     <h1>
         Upped: {{ title|upper }}: {{ value }}
     </h1>
-
     <h1>
         Capped first: {{ title|capfirst }}: {{ value }}
     </h1>
-
     <h1>
         Lower then capped first: {{ title|lower|capfirst }}: {{ value }}
     </h1>
-
     <h1>
         Truncated 10: {{ title|truncatechars:10 }}: {{ value }}
     </h1>
-
     <h2>
         {{ now }}
     </h2>
-
     <h2>
         {{ now|date:"j/F/Y  G:i:s" }}
     </h2>
 
-    {{ info.address }} <!-- In DTL (Django Template Language) -->
-    <!-- info['address'] in python -->
+    {{ info.address }} <!-- In DTL (Django Template Language) --> <!-- info['address'] in python -->
 
     {{ student.get_info }}
 
     {{ student_info }}  <!-- It is right variant. -->
+
+    <div>
+        {% if students %}
+            {{ students|join:', ' }}
+        {% else %}
+            No students ...
+        {% endif %}
+    </div>
 
 </body>
 <!-- This is pure/native HTML comment -->
