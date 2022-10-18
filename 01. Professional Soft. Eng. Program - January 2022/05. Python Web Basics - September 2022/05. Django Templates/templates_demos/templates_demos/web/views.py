@@ -39,3 +39,7 @@ def index(request):
 
 def redirect_to_home(request):
     return redirect('index')
+
+
+def about(request):
+    return render(request, 'about.html')
