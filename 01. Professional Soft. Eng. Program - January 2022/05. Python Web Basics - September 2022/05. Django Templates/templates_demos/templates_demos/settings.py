@@ -99,8 +99,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# Base location in the browser:
 STATIC_URL = "/static/"
 
+# Location on file system:
 STATICFILES_DIRS = (
     # join(BASE_DIR, 'staticfiles'), or
     BASE_DIR / 'staticfiles',

@@ -1,3 +1,4 @@
+{% load static %}
 {% load tags %}
 
 
@@ -6,6 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block page_title %}My site{% endblock %}</title>
+
+    {# Wrong way to load 'static files': #}
+    {#    <link rel="stylesheet" href="/static/site.css">#}
+
+    {# !!! Right way to load 'static files': #}
+    <link rel="stylesheet" href="{% static 'site.css' %}">
+
     {# Site CSS #}
     <style>
         h1 {
