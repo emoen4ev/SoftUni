@@ -1,3 +1,6 @@
+{% load tags %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +9,26 @@
 </head>
 <body>
 
+HTML Nav:
+<nav>
+    {#    <a href="{% url 'index' %}">{% url 'index' %}</a>#}
+    <a href="{% url 'index' %}">Go to home</a>
+
+    {#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
+    <a href="{% url 'redirect to home' %}">Redirect to home</a>
+</nav>
+
+Tag Nav:
+{% app_nav 'index' 'redirect to home' 'about' %}
+{% app_nav 'index' 'redirect to home' 'redirect to home' 'index' 'index' 'redirect to home' 'redirect to home' %}
+
+{# Placeholder for child templates to use #}
+{# 'page_content' is custom name #}
+{# can be 'content', 'main_content', ... or even 'Gosho' #}
+{% block page_content %}
+{% endblock %}
+
+
 </body>
+<!-- This is pure/native HTML comment -->
 </html>
