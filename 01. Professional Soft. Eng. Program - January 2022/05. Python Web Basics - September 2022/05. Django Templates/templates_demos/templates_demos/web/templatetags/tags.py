@@ -17,11 +17,18 @@ def sample_tag(*args, **kwargs):
     return ', '.join(str(x) for x in (list(args) + list(kwargs.items())))
 
 
-@register.inclusion_tag('tags/nav.html', name='app_nav')
-def generate_nav(*args):
-    context = {
+# @register.inclusion_tag('tags/nav.html', name='app_nav')
+# def generate_nav(*args):
+#     context = {
+#         'url_names': args,
+#
+#     }
+#
+#     return context
+
+
+@register.inclusion_tag('tags/nav.html', name='app_nav', takes_context=True)
+def generate_nav(context, *args):
+    return {
         'url_names': args,
-
     }
-
-    return context
