@@ -3,6 +3,10 @@
 {% load filters %} {# 'filters' is the name of the file #}
 {% load tags %}
 
+{#{% block page_title %}Homepage{% endblock %}#}
+{% block page_title %}{{ title }}{% endblock %}
+
+
 {% block page_content %}
 
 {#<!DOCTYPE html>#}

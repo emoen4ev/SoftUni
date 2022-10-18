@@ -5,9 +5,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block page_title %}My site{% endblock %}</title>
+    {# Site CSS #}
+    <style>
+        h1 {
+            color: green;
+        }
+    </style>
+
+    {# Page-specific CSS #}
+    {% block styles %} {% endblock %}
+    {% block head_scripts %} {% endblock %}
 </head>
 <body>
+{% block body_start_scripts %}
+{% endblock %}
 
 HTML Nav:
 <nav>
@@ -26,6 +38,10 @@ Tag Nav:
 {# 'page_content' is custom name #}
 {# can be 'content', 'main_content', ... or even 'Gosho' #}
 {% block page_content %}
+{% endblock %}
+
+
+{% block body_end_scripts %}
 {% endblock %}
 
 
