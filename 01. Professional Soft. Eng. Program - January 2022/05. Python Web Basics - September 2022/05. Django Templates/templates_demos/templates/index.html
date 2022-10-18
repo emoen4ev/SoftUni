@@ -23,8 +23,16 @@
     Odd: {{ values|odd }} {# 'odd' is te name of the filter #}
 </div>
 
+<div>{% student_info student %}</div>
+
 <div>
-    {% student_info student %}
+    {% sample_tag %}
+</div>
+<div>
+    {% sample_tag 17 'Doncho' True %}
+</div>
+<div>
+    {% sample_tag department='Engineering' company='SoftUni' %}
 </div>
 
 {{ csrf_token }} <!-- As variable -->
