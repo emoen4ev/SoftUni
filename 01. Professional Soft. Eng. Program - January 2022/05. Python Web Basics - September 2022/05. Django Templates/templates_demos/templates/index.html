@@ -9,6 +9,7 @@
 </head>
 <body>
 
+HTML Nav:
 <nav>
     {#    <a href="{% url 'index' %}">{% url 'index' %}</a>#}
     <a href="{% url 'index' %}">Go to home</a>
@@ -16,6 +17,10 @@
     {#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
     <a href="{% url 'redirect to home' %}">Redirect to home</a>
 </nav>
+
+Tag Nav:
+{% app_nav 'index' 'redirect to home' %}
+
 
 <div>Original: {{ values }}</div>
 
