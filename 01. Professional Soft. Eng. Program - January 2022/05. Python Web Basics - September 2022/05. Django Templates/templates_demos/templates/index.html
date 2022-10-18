@@ -1,4 +1,5 @@
 {% load filters %} {# 'filters' is the name of the file #}
+{% load tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +10,21 @@
 <body>
 
 <nav>
-{#    <a href="{% url 'index' %}">{% url 'index' %}</a>#}
+    {#    <a href="{% url 'index' %}">{% url 'index' %}</a>#}
     <a href="{% url 'index' %}">Go to home</a>
 
-{#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
+    {#    <a href="{% url 'redirect to home' %}">{% url 'redirect to home' %}</a>#}
     <a href="{% url 'redirect to home' %}">Redirect to home</a>
 </nav>
 
-<div>
-    Original: {{ values }}
-</div>
+<div>Original: {{ values }}</div>
 
 <div>
     Odd: {{ values|odd }} {# 'odd' is te name of the filter #}
+</div>
+
+<div>
+    {% student_info student %}
 </div>
 
 {{ csrf_token }} <!-- As variable -->
