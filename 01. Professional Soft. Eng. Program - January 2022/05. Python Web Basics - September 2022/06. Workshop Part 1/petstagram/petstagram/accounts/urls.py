@@ -1,4 +1,5 @@
 # account's urls.py
+
 from django.urls import path, include
 
 from petstagram.accounts.views import login_user, register_user, details_user, edit_user, delete_user
