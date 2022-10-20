@@ -11,7 +11,6 @@
 
 <!-- Starts Body Section -->
 <body>
-
 <!-- Starts Header Section with Navigation Bar -->
 <header>
     <nav class="navbar">
@@ -26,7 +25,6 @@
                     <i>Petstagram</i>
                 </a>
             </div>
-
             <div class="nav-links">
                 <ul class="nav-group">
                     <li class="nav-item">
@@ -42,21 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <!-- Link to Login Page -->
-                        <a href="#">
-                            <i>Login</i>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <!-- Link to Register Page -->
-                        <a href="#">
-                            <i>Register</i>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <!-- Link to Profile Details Page -->
+                        <!-- Link to Profile Page -->
                         <a href="#">
                             <i>Profile</i>
                         </a>
@@ -68,30 +52,16 @@
 </header>
 <!-- End Header Section with Navigation Bar -->
 
+<h1 style="background: black; color: white; font-size: 42px">It works ...</h1> {# For testing ... #}
+
 <!-- Starts Main Section -->
 <main>
-    <!-- 404 page -->
-    <div class="not-found-img">
-        <img src="/staticfiles/images/zillow-404-page-5f3ed6a6abaa5.gif" alt="404 not found gif">
-    </div>
-
-    <div class="not-found">
-        <h1>
-            Uh oh,<br> something broke.
-        </h1>
-
-        <h3>Error 404 - page not found.</h3>
-        <!-- Link to Home Page -->
-        <a href="#">
-            <button>Return to Petstagram</button>
-        </a>
-    </div>
-    <!-- End 404 page -->
-
+    {% block page_content %}
+    {% endblock %}
 </main>
 <!-- End Main Section -->
 
-<!-- Starts Footer Section -->
+<!-- Start Footer Section -->
 <div class="footer">
 		<span class="footer-section">
 			© 2022 SOFTUNI WORKSHOP FOR PYTHON WEB MODULE
