@@ -11,7 +11,7 @@ class Employee(models.Model):
 Django ORM (Object-relational mapping)
 '''
 
-Employee.objects.all()  # Select
-Employee.objects.create()  # Insert
-Employee.objects.filter()  # Select + Where
-Employee.objects.update()  # Update
+# Employee.objects.all()  # Select
+# Employee.objects.create()  # Insert
+# Employee.objects.filter()  # Select + Where
+# Employee.objects.update()  # Update
