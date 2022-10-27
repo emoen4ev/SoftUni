@@ -16,6 +16,12 @@ class Employee(models.Model):
         null=True,
     )
 
+    level = models.CharField(
+        max_length=15,
+    )
+
+    age = models.IntegerField()
+
     # int
     years_of_experience = models.IntegerField()
 
@@ -25,22 +31,20 @@ class Employee(models.Model):
     # Text => strings with unlimited length
     review = models.TextField()
 
-    start_date = models.DateField() # This field is filled in manually,
+    start_date = models.DateField()  # This field is filled in manually,
     # not automatically, unlike next two examples below
 
     # This will be automatically set on creation
     created_on = models.DateTimeField(
-        auto_now_add=True, # optional
+        auto_now_add=True,  # optional
     )
 
     # This will be automatically set on each 'save'/'update'
     updated_on = models.DateTimeField(
-        auto_now=True, # optional
+        auto_now=True,  # optional
     )
 
     email = models.EmailField()
-
-
 
 
 '''

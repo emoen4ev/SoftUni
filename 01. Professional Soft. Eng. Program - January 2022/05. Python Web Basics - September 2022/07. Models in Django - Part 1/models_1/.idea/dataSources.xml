@@ -10,5 +10,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Emo\Desktop\GitHub_Repos\SoftUni\01. Professional Soft. Eng. Program - January 2022\05. Python Web Basics - September 2022\07. Models in Django - Part 1\models_1\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="postgres@localhost" uuid="8b7cdb43-5eed-4b38-84e0-c5fc85e2e304">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
