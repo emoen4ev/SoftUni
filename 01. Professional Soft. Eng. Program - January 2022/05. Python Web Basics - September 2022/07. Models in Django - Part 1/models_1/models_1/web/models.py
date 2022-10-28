@@ -8,10 +8,30 @@ from django.db import models
 # Model fields == class attributes in Model classes
 
 
-# class EmployeeLevel(Enum):
+# class EmployeeLevel(Enum): # It's the best way ...
 #     JUNIOR = 'Junior',
 #     REGULAR = 'Regular',
 #     SENIOR = 'Senior'
+
+# One-to-many relationship
+# Must migrate this first
+class Department(models.Model):
+    name = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f'Id: {self.pk} / Name: {self.name}'
+
+
+# Many-to-many relationship(only one migration needs)
+class Project(models.Model):
+    name = models.CharField(
+        max_length=30,
+    )
+    code_name = models.CharField(
+        max_length=10,
+        unique=True,
+    )
+    deadline = models.DateField()
 
 
 class Employee(models.Model):
@@ -45,7 +65,7 @@ class Employee(models.Model):
     # )
 
     level = models.CharField(
-        verbose_name='Seniority level', # Only for visualisation
+        verbose_name='Seniority level',  # Only for visualisation
         max_length=len(LEVEL_REGULAR),
         choices=LEVELS,
     )
@@ -88,6 +108,22 @@ class Employee(models.Model):
         # editable=False,
     )
 
+    # One-to-many relationship
+    # Migrate second, after migrating class Department
+    department = models.ForeignKey(
+        Department,
+        on_delete=models.RESTRICT,
+        # on_delete=models.SET_NULL, # SET_NULL works only if null=True
+        # null=True,
+    )
+
+    # Many-to-many relationship(only one migration needs, after creating class Project)
+    projects = models.ManyToManyField(
+        Project,
+        related_name='employees',
+        # trough='EmployeesProjects',
+    )
+
     @property
     def fullname(self):
         return f'{self.first_name} {self.last_name}'
@@ -96,6 +132,47 @@ class Employee(models.Model):
         # self.id == self.pk
         # return f'Id: {self.pk} / Name: {self.first_name} {self.last_name}' # without @property
         return f'Id: {self.pk} / Name: {self.fullname}'  # used @property
+
+
+# One-to-one relationship
+class AccessCard(models.Model):
+    employee = models.OneToOneField(
+        Employee,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+
+
+class Category(models.Model):
+    name = models.CharField(
+        max_length=15,
+    )
+
+    parent_category = models.ForeignKey(
+        'Category',
+        on_delete=models.RESTRICT,
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self):
+        return f'Name: {self.name}'
+
+
+class EmployeesProjects(models.Model):
+    employee_id = models.ForeignKey(
+        Employee,
+        on_delete=models.RESTRICT
+    )
+    project_id = models.ForeignKey(
+        Project,
+        on_delete=models.RESTRICT
+    )
+
+    date_joined = models.DateField(
+        auto_now_add=True,
+        # Additional info
+    )
 
 
 class NullBlankDemo(models.Model):
@@ -110,7 +187,7 @@ class NullBlankDemo(models.Model):
     )
 
     blank_null = models.IntegerField(
-        blank=True, # Form validation
+        blank=True,  # Form validation
         null=True,
     )
 
@@ -118,6 +195,7 @@ class NullBlankDemo(models.Model):
         blank=False,
         null=False,
     )
+
 
 # emp.level == Employee.LEVEL_REGULAR
 
