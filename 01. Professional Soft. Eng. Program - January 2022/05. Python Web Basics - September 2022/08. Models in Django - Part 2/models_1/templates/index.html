@@ -15,11 +15,15 @@
             {% for employee in employees %}
                 <li>
                     <div>
-                        {{ employee.first_name }} {{ employee.last_name }}
+{#                        {{ employee.first_name }} {{ employee.last_name }}#}
+                        {{ employee.fullname }}
                     </div>
                     <div>
                         Department:
                         {{ employee.department.name }}
+                    </div>
+                    <div>
+                        in {{ employee.department.name }} for {{ employee.years_of_employment }}
                     </div>
                     <div>
                         Experience: {{ employee.years_of_experience }} /

@@ -1,3 +1,4 @@
+from datetime import date
 from enum import Enum
 
 from django.db import models
@@ -41,6 +42,9 @@ class Department(AuditInfoMixin, models.Model):
 
     def __str__(self):
         return f'Id: {self.pk} / Name: {self.name}'
+
+    def get_absolute_url(self):
+        pass
 
 
 # Many-to-many relationship(only one migration needs)
@@ -112,7 +116,7 @@ class Employee(AuditInfoMixin, models.Model):
     review = models.TextField()
 
     start_date = models.DateField()  # This field is filled in manually,
-    # not automatically, unlike next two examples below
+    # not automatically, unlike 'created_on' and 'updated_on'
 
     is_full_time = models.BooleanField(
         null=True,
@@ -145,6 +149,10 @@ class Employee(AuditInfoMixin, models.Model):
     @property
     def fullname(self):
         return f'{self.first_name} {self.last_name}'
+
+    @property
+    def years_of_employment(self):
+        return date.today() - self.start_date
 
     def __str__(self):
         # self.id == self.pk
