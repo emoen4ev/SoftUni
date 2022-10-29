@@ -3,6 +3,27 @@ from enum import Enum
 from django.db import models
 
 
+class AuditInfoMixin(models.Model):
+    class Meta:
+        # 1. No table will be created in the DB
+        # 2. Can be inherited in other models
+        abstract = True
+
+    # This will be automatically set on creation
+    created_on = models.DateTimeField(
+        auto_now_add=True,  # optional
+    )
+
+    # This will be automatically set on each 'save'/'update'
+    updated_on = models.DateTimeField(
+        auto_now=True,  # optional
+    )
+
+
+# class DeletableMixin(models.Model):
+#     is_deleted = models.BooleanField(default=False)
+
+
 # models.py
 
 # Model fields == class attributes in Model classes
@@ -15,7 +36,7 @@ from django.db import models
 
 # One-to-many relationship
 # Must migrate this first
-class Department(models.Model):
+class Department(AuditInfoMixin, models.Model):
     name = models.CharField(max_length=15)
 
     def __str__(self):
@@ -23,7 +44,7 @@ class Department(models.Model):
 
 
 # Many-to-many relationship(only one migration needs)
-class Project(models.Model):
+class Project(AuditInfoMixin, models.Model):
     name = models.CharField(
         max_length=30,
     )
@@ -34,7 +55,14 @@ class Project(models.Model):
     deadline = models.DateField()
 
 
-class Employee(models.Model):
+class Employee(AuditInfoMixin, models.Model):
+    class Meta:
+        # ordering = ('age',)
+        # ordering = ('-age',)
+        ordering = ('years_of_experience',
+                    '-age',
+                    )
+
     LEVEL_JUNIOR = 'Junior'
     LEVEL_REGULAR = 'Regular'
     LEVEL_SENIOR = 'Senior'
@@ -86,21 +114,11 @@ class Employee(models.Model):
     start_date = models.DateField()  # This field is filled in manually,
     # not automatically, unlike next two examples below
 
-    # This will be automatically set on creation
-    created_on = models.DateTimeField(
-        auto_now_add=True,  # optional
-    )
-
     is_full_time = models.BooleanField(
         null=True,
     )
 
     # is_full_time_1 = models.BooleanField()
-
-    # This will be automatically set on each 'save'/'update'
-    updated_on = models.DateTimeField(
-        auto_now=True,  # optional
-    )
 
     email = models.EmailField(
         # Adds 'UNIQUE' constraint
@@ -144,6 +162,9 @@ class AccessCard(models.Model):
 
 
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(
         max_length=15,
     )

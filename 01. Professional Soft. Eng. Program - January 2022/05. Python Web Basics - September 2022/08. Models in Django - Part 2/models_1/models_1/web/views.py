@@ -5,14 +5,14 @@ from models_1.web.models import Employee, Department, Project
 
 
 def index(request):
-    # employees = Employee.objects.all()
-    employees = [e for e in Employee.objects.all() if e.department_id == 2]  # Slower
-    # employees_2 = Employee.objects.all()
+    employees = Employee.objects.all()
+    # employees = [e for e in Employee.objects.all() if e.department_id == 2]  # Slower
+    employees_2 = Employee.objects.all()
     # employees_2 = Employee.objects.filter(department_id=2) # Right way - Fastest
-    employees_2 = Employee.objects\
-        .filter(department_id=2) \
-        .filter(age__gt=30) \
-        .order_by('last_name', 'first_name')
+    # employees_2 = Employee.objects\
+    #     .filter(department_id=2) \
+    #     .filter(age__gt=30) \
+    #     .order_by('last_name', 'first_name')
     # employees_2 = Employee.objects \
     #     .filter(department__name='Engineering') \
     #     .filter(age__gt=30) \
@@ -55,7 +55,7 @@ def delete_employee(request, pk):
     # department_pk = 3
     # # When 'on_delete=models.RESTRICT' this must be done explicitly
     # # When 'on_delete=models.CASCADE' this is done explicitly
-    # get_list_or_404(Employee, department_id=department_pk)\
+    # Employee.objects.filter(department_id=department_pk)\
     #     .delete()
     # get_object_or_404(Department, pk=department_pk).delete()
 
