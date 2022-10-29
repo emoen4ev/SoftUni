@@ -78,7 +78,7 @@ class Employee(models.Model):
     years_of_experience = models.IntegerField()
 
     # int > 0
-    years_of_experience_positive = models.PositiveIntegerField()
+    # years_of_experience_positive = models.PositiveIntegerField()
 
     # Text => strings with unlimited length
     review = models.TextField()
