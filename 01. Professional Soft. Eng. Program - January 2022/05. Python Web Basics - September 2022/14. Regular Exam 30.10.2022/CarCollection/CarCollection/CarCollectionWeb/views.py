@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from CarCollection.CarCollectionWeb.models import Profile
 
 '''
 •	http://localhost:8000/ - index page
@@ -15,8 +17,23 @@ from django.shortcuts import render
 '''
 
 
+def get_profile():
+    try:
+        return Profile.objects.get()
+    except:
+        return None
+
+
 def index(request):
+    profile = get_profile()
+    if profile is None:
+        return redirect('index without profile')
+
     return render(request, 'home/index.html')
+
+
+def index_without_profile(request):
+    return render(request, 'home/index_without_profile.html')
 
 
 def create_profile(request):

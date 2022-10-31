@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 from CarCollection.CarCollectionWeb.views import index, create_profile, details_profile, edit_profile, delete_profile, \
-    catalogue, create_car, details_car, edit_car, delete_car
+    catalogue, create_car, details_car, edit_car, delete_car, index_without_profile
 
 '''
 •	http://localhost:8000/ - index page
@@ -19,6 +19,7 @@ from CarCollection.CarCollectionWeb.views import index, create_profile, details_
 
 urlpatterns = (
     path('', index, name='index'),
+    path('add/', index_without_profile, name='index without profile'),
     path('catalogue', catalogue, name='catalogue'),
     path('profile/', include([
         path('create/', create_profile, name='create profile'),
