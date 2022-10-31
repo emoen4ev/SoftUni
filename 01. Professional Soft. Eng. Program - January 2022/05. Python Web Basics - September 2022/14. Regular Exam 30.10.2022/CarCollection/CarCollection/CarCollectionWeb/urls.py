@@ -20,7 +20,7 @@ from CarCollection.CarCollectionWeb.views import index, create_profile, details_
 urlpatterns = (
     path('', index, name='index'),
     path('add/', index_without_profile, name='index without profile'),
-    path('catalogue', catalogue, name='catalogue'),
+    path('catalogue/', catalogue, name='catalogue'),
     path('profile/', include([
         path('create/', create_profile, name='create profile'),
         path('details/', details_profile, name='details profile'),
