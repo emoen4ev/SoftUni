@@ -2,6 +2,7 @@ from datetime import date
 from enum import Enum
 
 from django.db import models
+from django.urls import reverse
 
 
 class AuditInfoMixin(models.Model):
@@ -39,12 +40,24 @@ class AuditInfoMixin(models.Model):
 # Must migrate this first
 class Department(AuditInfoMixin, models.Model):
     name = models.CharField(max_length=15)
+    slug = models.SlugField(
+        unique=True,
+        null=True,
+    )
 
     def __str__(self):
         return f'Id: {self.pk} / Name: {self.name}'
 
     def get_absolute_url(self):
-        pass
+        url = reverse('details department', kwargs={
+            'pk': self.pk,
+        })
+        return url
+
+    # def save(
+    #         self, force_insert=False, force_update=False, using=None, update_fields=None
+    # ):
+    #     pass
 
 
 # Many-to-many relationship(only one migration needs)
