@@ -1,5 +1,16 @@
+"""
+Car
+
+Create a class called Car.
+Upon initialization, it should receive a name, model, and engine (all strings).
+
+Create a method called get_info() which will return a string in the following format:
+"This is {name} {model} with engine {engine}".
+"""
+
+
 class Car:
-    def __init__(self, name, model, engine):
+    def __init__(self, name: str, model: str, engine: str):
         self.name = name
         self.model = model
         self.engine = engine
@@ -7,9 +18,23 @@ class Car:
     def get_info(self):
         return f'This is {self.name} {self.model} with engine {self.engine}'
 
-# car_1 = Car("Audi", "A8", "2.5 TDI")
-#
-# print(car_1.get_info())
+
+car = Car("Kia", "Rio", "1.3L B3 I4")
+car_2 = Car("Audi", "A8", "2.5 TDI")
+
+print(car.get_info())
+print(car_2.get_info())
+
+'''
+Test Code:
 
 car = Car("Kia", "Rio", "1.3L B3 I4")
 print(car.get_info())
+
+----------------------------------------------------------------
+
+Output:
+
+This is "Title" from "Artist"
+Lyrics
+'''
