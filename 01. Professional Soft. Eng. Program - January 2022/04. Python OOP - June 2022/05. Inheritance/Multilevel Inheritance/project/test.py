@@ -1,4 +1,4 @@
-from project.sports_car import SportsCar
+from sports_car import SportsCar
 
 
 race_car = SportsCar()
