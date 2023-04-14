@@ -23,7 +23,7 @@ class Mammal:
         return f'{self.name} makes {self.sound}'
 
     def get_kingdom(self):
-        return self.__kingdom
+        return Mammal.__kingdom
 
     def info(self):
         return f'{self.name} is of type {self.type}'
