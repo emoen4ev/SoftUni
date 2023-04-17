@@ -1,3 +1,14 @@
+"""
+4.	Shapes
+
+Create an abstract class Shape with abstract methods calculate_area and calculate_perimeter.
+Create classes Circle (receives radius upon initialization)
+and Rectangle (receives height and width upon initialization) that implement those methods (returning the result).
+The fields of Circle and Rectangle should be private.
+
+Submit all the classes and your imports in the judge system
+"""
+
 from abc import ABC, abstractmethod
 from math import pi
 
@@ -47,3 +58,23 @@ print(circle.calculate_perimeter())
 rectangle = Rectangle(10, 20)
 print(rectangle.calculate_area())
 print(rectangle.calculate_perimeter())
+
+'''
+Test Code:
+
+circle = Circle(5)
+print(circle.calculate_area())
+print(circle.calculate_perimeter())
+rectangle = Rectangle(10, 20)
+print(rectangle.calculate_area())
+print(rectangle.calculate_perimeter())
+
+----------------------------------------------------------------
+
+Output:
+
+78.53981633974483
+31.41592653589793
+200
+60
+'''
