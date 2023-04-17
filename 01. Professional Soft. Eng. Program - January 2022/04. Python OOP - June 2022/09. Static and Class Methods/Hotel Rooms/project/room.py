@@ -40,10 +40,10 @@ class Room:
         self.guests += people
 
     def free_room(self):
-        if self.is_taken:
-            self.is_taken = False
-            self.guests = 0
-        return f'Room number {self.number} is not taken'
+        if not self.is_taken:
+            return f'Room number {self.number} is not taken'
+        self.is_taken = False
+        self.guests = 0
 
 
 '''
