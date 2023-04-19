@@ -24,7 +24,8 @@ class Flower:
         self.is_happy = False
 
     def water(self, quantity: int):
-        self.is_happy = True if quantity >= self.water_requirements else False
+        self.is_happy = quantity >= self.water_requirements
+        # self.is_happy = True if quantity >= self.water_requirements else False
 
     def status(self):
         return f'{self.name} is happy' if self.is_happy else f'{self.name} is not happy'
@@ -37,6 +38,8 @@ print(flower.status())
 flower.water(60)
 print(flower.status())
 flower.water(100)
+print(flower.status())
+flower.water(10)
 print(flower.status())
 
 '''
