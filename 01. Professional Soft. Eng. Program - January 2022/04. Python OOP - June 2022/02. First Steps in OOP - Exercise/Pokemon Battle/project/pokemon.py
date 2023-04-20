@@ -2,7 +2,7 @@
 8.	Pokemon Battle*
 
 Note: For this problem, please submit a zip file containing a separate file for each of the classes,
-with the class names provided in the problem description, and include them in a module named project.
+      with the class names provided in the problem description, and include them in a module named project.
 
 You are tasked to create two classes: a Pokemon class in the pokemon.py file and a Trainer class in the trainer.py file.
 
@@ -33,7 +33,6 @@ The Trainer has three methods:
 
 
 class Pokemon:
-
     def __init__(self, name: str, health: int):
         self.name = name
         self.health = health
