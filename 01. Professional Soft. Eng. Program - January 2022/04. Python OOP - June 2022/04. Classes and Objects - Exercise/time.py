@@ -40,12 +40,12 @@ class Time:
             self.seconds = 0
             self.minutes += 1
 
-        if self.minutes > Time.MAX_MINUTES:
-            self.minutes = 0
-            self.hours += 1
+            if self.minutes > Time.MAX_MINUTES:
+                self.minutes = 0
+                self.hours += 1
 
-        if self.hours > Time.MAX_HOURS:
-            self.hours = 0
+                if self.hours > Time.MAX_HOURS:
+                    self.hours = 0
 
         return self.get_time()
 
