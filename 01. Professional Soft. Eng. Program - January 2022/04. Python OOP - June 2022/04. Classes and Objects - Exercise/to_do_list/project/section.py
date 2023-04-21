@@ -30,15 +30,18 @@ o	Returns information about the section and its tasks in this format:
      {details of the n task}"
 """
 
+from project.task import Task
+
 
 class Section:
     def __init__(self, name: str):
         self.name = name
         self.tasks = []
 
-    def add_task(self, new_task):
+    def add_task(self, new_task: Task):
         if new_task in self.tasks:
             return f'Task is already in the section {self.name}'
+
         self.tasks.append(new_task)
         return f'Task {new_task.details()} is added to the section'
 
@@ -53,15 +56,10 @@ class Section:
         initial_len = len(self.tasks)
         self.tasks = [t for t in self.tasks if not t.completed]
         removed_tasks = initial_len - len(self.tasks)
-        # removed_tasks = 0
-        # for task in self.tasks:
-        #     if task.completed:
-        #         self.tasks.remove(task)
-        #         removed_tasks += 1
         return f'Cleared {removed_tasks} tasks.'
 
     def view_section(self):
-        result = f'Section {self.name}:\n'
+        result = f'Section {self.name}:'
         for task in self.tasks:
-            result += task.details() + '\n'
-        return result.strip()
+            result += '\n' + task.details()
+        return result

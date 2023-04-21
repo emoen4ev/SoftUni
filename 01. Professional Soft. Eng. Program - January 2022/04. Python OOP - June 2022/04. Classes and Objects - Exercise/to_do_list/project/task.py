@@ -22,7 +22,8 @@ o	If the new date is the same as the current date, returns "Date cannot be the s
 o	Adds a comment to the task.
 
 -	edit_comment(comment_number: int, new_comment: str)
-o	The comment number value represents the index of the comment we want to edit. The method should change the comment and return all the comments, separated by comma and space (", ")
+o	The comment number value represents the index of the comment we want to edit.
+The method should change the comment and return all the comments, separated by comma and space (", ")
 o	If the comment number is out of range, returns "Cannot find comment."
 
 -	details()
@@ -35,18 +36,19 @@ class Task:
     def __init__(self, name: str, due_date: str):
         self.name = name
         self.due_date = due_date
+
         self.comments = []
         self.completed = False
 
     def change_name(self, new_name: str):
-        if new_name == self.name:
-            return 'Name cannot be the same.'
+        if self.name == new_name:
+            return f'Name cannot be the same.'
         self.name = new_name
         return self.name
 
     def change_due_date(self, new_date: str):
-        if new_date == self.due_date:
-            return 'Date cannot be the same.'
+        if self.due_date == new_date:
+            return f'Date cannot be the same.'
         self.due_date = new_date
         return self.due_date
 
