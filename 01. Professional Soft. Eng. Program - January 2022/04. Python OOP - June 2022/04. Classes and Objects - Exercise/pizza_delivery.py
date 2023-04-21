@@ -63,8 +63,8 @@ class PizzaDelivery:
 
     def make_order(self):
         self.ordered = True
-        data = ', '.join([f'{k}: {v}' for k, v in self.ingredients.items()])
-        return f"You've ordered pizza {self.name} prepared with {data} and the price will be {self.price}lv."
+        ingredients_str = ', '.join([f'{ingredient}: {quantity}' for ingredient, quantity in self.ingredients.items()])
+        return f"You've ordered pizza {self.name} prepared with {ingredients_str} and the price will be {self.price}lv."
 
 
 margarita = PizzaDelivery('Margarita', 11, {'cheese': 2, 'tomatoes': 1})
