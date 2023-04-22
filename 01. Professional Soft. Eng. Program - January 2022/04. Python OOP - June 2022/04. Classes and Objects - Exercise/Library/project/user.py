@@ -17,19 +17,22 @@ You should also create 2 instance methods:
 -	info() - returns a string containing the books currently rented by the user in ascending order
 separated by comma and space.
 
--	__str__() - override the method to get a string in the following format "{user_id}, {username},
- {list of rented books}"
+-	__str__() - override the method to get a string in the following format
+"{user_id}, {username}, {list of rented books}"
 """
 
 
 class User:
-    def __init__(self, user_id: int, username: str):
+    def __init__(self, user_id: int, username: str) -> None:
         self.user_id = user_id
         self.username = username
+
         self.books = []
 
     def info(self):
-        return ', '.join(sorted(self.books))
+        sorted_books = sorted(self.books)
+        result = ', '.join(sorted_books)
+        return result
 
     def __str__(self):
         return f'{self.user_id}, {self.username}, {self.books}'
