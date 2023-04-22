@@ -12,7 +12,7 @@ o	Returns the information of the song in this format: "{song_name} - {song_lengt
 
 
 class Song:
-    def __init__(self, name: str, length: float, single: bool):
+    def __init__(self, name: str, length: float, single: bool) -> None:
         self.name = name
         self.length = length
         self.single = single

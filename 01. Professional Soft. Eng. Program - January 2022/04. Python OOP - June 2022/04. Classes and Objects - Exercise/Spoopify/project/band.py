@@ -3,7 +3,8 @@
 
 You are tasked to create three classes: a Song class, an Album class, and a Band class.
 
-The Band class should receive a name (string) upon initialization. It also has an attribute albums (an empty list).
+The Band class should receive a name (string) upon initialization.
+It also has an attribute albums (an empty list).
 
 The class has three methods:
 -	add_album(album: Album)
@@ -22,33 +23,36 @@ o	Returns the information of the band, with their albums, in this format:
  ...
  {album details}"
 """
-
-from .album import Album
+from project.album import Album
 
 
 class Band:
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
+
         self.albums = []
 
     def add_album(self, album: Album):
-        if album in self.albums:
-            return f'Band {self.name} already has {album.name} in their library.'
+        for current_album in self.albums:
+            if current_album.name == album.name:
+                return f'Band {self.name} already has {album.name} in their library.'
 
         self.albums.append(album)
         return f'Band {self.name} has added their newest album {album.name}.'
 
     def remove_album(self, album_name: str):
-        for album in self.albums:
-            if album.name == album_name:
-                if album.published:
+        for current_album in self.albums:
+            if current_album.name == album_name:
+                if current_album.published:
                     return f'Album has been published. It cannot be removed.'
-                self.albums.remove(album)
-                return f'Album {album.name} has been removed.'
+                self.albums.remove(current_album)
+                return f'Album {album_name} has been removed.'
+
         return f'Album {album_name} is not found.'
 
     def details(self):
         result = f'Band {self.name}\n'
-        for album in self.albums:
-            result += f'{album.details()}\n'
-        return result.strip()
+        for current_album in self.albums:
+            result += current_album.details()
+
+        return result

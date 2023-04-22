@@ -31,7 +31,8 @@ print(band.details())
 
 ------------------------------------------------
 
-Output
+Output:
+
 Running in the 90s - 3.45
 Song Around the World has been added to the album Initial D.
 Album Initial D
