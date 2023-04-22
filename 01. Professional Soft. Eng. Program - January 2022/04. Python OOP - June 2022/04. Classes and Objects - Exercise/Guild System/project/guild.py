@@ -15,7 +15,8 @@ o	If he is already in the guild, returns "Player {player_name} is already in the
 o	If the player is in another guild, returns "Player {player_name} is in another guild."
 
 -	kick_player(player_name: str)
-o	Removes the player from the guild and returns "Player {player_name} has been removed from the guild.". Remember to change the player's guild in the player class to "Unaffiliated".
+o	Removes the player from the guild and returns "Player {player_name} has been removed from the guild.".
+Remember to change the player's guild in the player class to "Unaffiliated".
 o	If there is no such player in the guild, returns "Player {player_name} is not in the guild."
 
 -	guild_info()
@@ -26,35 +27,71 @@ o	Returns the guild's information, including the players in the guild, in the fo
 {Nplayer's info}"
 """
 
-from player import Player
+from project.player import Player
 
 
 class Guild:
     def __init__(self, name: str):
         self.name = name
+
         self.players = []
 
     def assign_player(self, player: Player):
-        if self.name == player.guild:
-            return f'Player {player.name} is already in the guild.'
-        # if player.guild != 'Unaffiliated':
-        if player.guild != Player.DEFAULT_GUILD:
+        if player.guild not in (Player.DEFAULT_GUILD, self.name):
             return f'Player {player.name} is in another guild.'
+
+        if player.guild == self.name:
+            return f'Player {player.name} is already in the guild.'
+
         self.players.append(player)
         player.guild = self.name
+
         return f'Welcome player {player.name} to the guild {self.name}'
 
     def kick_player(self, player_name: str):
-        for player in self.players:
-            if player.name == player_name:
-                self.players.remove(player)
-                player.guild = Player.DEFAULT_GUILD
+        for current_player in self.players:
+            if current_player.name == player_name:
+                self.players.remove(current_player)
+                current_player.guild = Player.DEFAULT_GUILD
+
                 return f'Player {player_name} has been removed from the guild.'
+
         return f'Player {player_name} is not in the guild.'
 
     def guild_info(self):
-        result = f'Guild: {self.name}\n'
-        for player in self.players:
-            result += player.player_info() + '\n'
+        result = f'Guild: {self.name}'
 
-        return result.strip()
+        for player in self.players:
+            result += f'\n{player.player_info()}'
+
+        return result
+
+# class Guild:
+#     def __init__(self, name: str):
+#         self.name = name
+#         self.players = []
+#
+#     def assign_player(self, player: Player):
+#         if self.name == player.guild:
+#             return f'Player {player.name} is already in the guild.'
+#         # if player.guild != 'Unaffiliated':
+#         if player.guild != Player.DEFAULT_GUILD:
+#             return f'Player {player.name} is in another guild.'
+#         self.players.append(player)
+#         player.guild = self.name
+#         return f'Welcome player {player.name} to the guild {self.name}'
+#
+#     def kick_player(self, player_name: str):
+#         for player in self.players:
+#             if player.name == player_name:
+#                 self.players.remove(player)
+#                 player.guild = Player.DEFAULT_GUILD
+#                 return f'Player {player_name} has been removed from the guild.'
+#         return f'Player {player_name} is not in the guild.'
+#
+#     def guild_info(self):
+#         result = f'Guild: {self.name}\n'
+#         for player in self.players:
+#             result += player.player_info() + '\n'
+#
+#         return result.strip()
