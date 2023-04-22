@@ -1,3 +1,28 @@
+"""
+7.	Spoopify
+
+You are tasked to create three classes: a Song class, an Album class, and a Band class.
+
+The Band class should receive a name (string) upon initialization. It also has an attribute albums (an empty list).
+
+The class has three methods:
+-	add_album(album: Album)
+o	Adds an album to the collection and returns "Band {band_name} has added their newest album {album_name}."
+o	If the album is already added, returns "Band {band_name} already has {album_name} in their library."
+
+-	remove_album(album_name: str)
+o	Removes the album from the collection and returns "Album {name} has been removed."
+o	If the album is published, returns "Album has been published. It cannot be removed."
+o	If the album is not in the collection, returns "Album {name} is not found."
+
+-	details()
+o	Returns the information of the band, with their albums, in this format:
+"Band {name}
+ {album details}
+ ...
+ {album details}"
+"""
+
 from .album import Album
 
 
