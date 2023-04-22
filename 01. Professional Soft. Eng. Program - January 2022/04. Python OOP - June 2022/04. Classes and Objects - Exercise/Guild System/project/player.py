@@ -36,7 +36,7 @@ class Player:
         self.mp = mp
 
         self.skills = {}
-        self.guild = self.DEFAULT_GUILD
+        self.guild = Player.DEFAULT_GUILD
 
     def add_skill(self, skill_name: str, mana_cost: int):
         if skill_name in self.skills:
