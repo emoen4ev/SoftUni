@@ -37,7 +37,7 @@ from project.user import User
 
 class Library:
     def __init__(self) -> None:
-        self.users_records: [User] = []
+        self.user_records: [User] = []
         self.books_available: [str, []] = {}
         self.rented_books: [str, {str, int}] = {}
 

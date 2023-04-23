@@ -39,15 +39,15 @@ class Registration:
     def add_user(self, user: User, library: Library):
         if self.find_user(self, user, library):
             return f'User with id = {user.user_id} already registered in the library!'
-        library.users_records.append(user)
+        library.user_records.append(user)
 
     def remove_user(self, user: User, library: Library):
         if not self.find_user(self, user, library):
             return f'We could not find such user to remove!'
-        library.users_records.remove(user)
+        library.user_records.remove(user)
 
     def change_username(self, user_id: int, new_username: str, library: Library):
-        for current_user in library.users_records:
+        for current_user in library.user_records:
             if current_user.user_id == user_id:
                 if current_user.username == new_username:
                     return f'Please check again the provided username - it should be different than the username used so far!'
@@ -61,7 +61,7 @@ class Registration:
 
     @staticmethod
     def find_user(self, user: User, library: Library):
-        for current_user in library.users_records:
+        for current_user in library.user_records:
             if current_user.user_id == user.user_id:
                 return True
         return False
